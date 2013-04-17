@@ -15,3 +15,7 @@ Gets 12 photos from picturedept.tumblr.com
     $photos = new Tumblr_Latest_Photos( 'picturedept' );
     $latest_photos = $photos->generate('12');
 ```
+
+Demo
+----
+[http://demo.jworksuk.com/github/tumblrlatestphotos/examples/basic-masonry.php](http://demo.jworksuk.com/github/tumblrlatestphotos/examples/basic-masonry.php)

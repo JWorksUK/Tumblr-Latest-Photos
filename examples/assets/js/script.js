@@ -1,5 +1,9 @@
 $(document).ready(function(){
-    $('.wrapper').masonry({
-        itemSelector: '.post'
+    var $container = $('.wrapper');
+
+    $container.imagesLoaded( function(){
+        $container.masonry({
+            itemSelector : '.post'
+        });
     });
 });
