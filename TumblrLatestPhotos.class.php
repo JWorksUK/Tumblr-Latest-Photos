@@ -67,7 +67,7 @@ class Tumblr_Latest_Photos
      */
     public function get()
     {
-        $cache = $_SERVER['DOCUMENT_ROOT'].self::cache;
+        $cache = dirname(__FILE__).'/'.self::cache;
 
         $photos = array();
 
