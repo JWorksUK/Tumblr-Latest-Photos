@@ -9,7 +9,6 @@
 class Tumblr_Latest_Photos
 {
     private $base_hostname;
-    private $cache_path;
 
     const cache = "tumblr-latest-photos.cache";
 
@@ -23,7 +22,6 @@ class Tumblr_Latest_Photos
     function __construct( $base_hostname )
     {
         $this->base_hostname = $base_hostname;
-        $this->cache_path = $cache_path;
     }
     
     // -------------------------------------------------------------------------
