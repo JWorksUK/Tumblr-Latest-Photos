@@ -19,3 +19,7 @@ Gets 12 photos from picturedept.tumblr.com
 Demo
 ----
 [http://demo.jworksuk.com/github/tumblrlatestphotos/examples/basic-masonry.php](http://demo.jworksuk.com/github/tumblrlatestphotos/examples/basic-masonry.php)
+
+TODO
+----
+Use `curl` instead of `file_get_contents` as some servers don't allow `file_get_contents`
