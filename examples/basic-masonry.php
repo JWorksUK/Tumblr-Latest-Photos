@@ -20,7 +20,7 @@
     <div class="wrapper">
         <?php foreach($latest_photos as $photo) : ?>
             <div class="post">
-                <a href="<?php echo $photo->post_url; ?>" target="_blank"><img src="<?php echo $photo->photo->alt_sizes[0]->url; ?>" width="300" /></a>
+                <a href="<?php echo $photo->post_url; ?>" target="_blank"><img src="<?php echo $photo->photo->alt_sizes[0]->url; ?>" width="300" alt="" /></a>
                 <h4 class="title"><?php echo $photo->blog_name; ?></h4>
                 <p class="time"><?php echo $photo->date; ?></p>
             </div>

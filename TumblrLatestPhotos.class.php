@@ -73,7 +73,7 @@ class Tumblr_Latest_Photos
 
         if(file_exists($cache) && time() - filemtime($cache) < 60*30 && filesize( $cache )!==0){
             // Use the cache if it exists and is less than three hours old
-            $data = unserialize(file_get_contents($cache));
+            $data = unserialize(self::file_get_contents_curl($cache));
         }
         else{
             // Otherwise rebuild it
@@ -103,7 +103,7 @@ class Tumblr_Latest_Photos
     {
         $url = "http://api.tumblr.com/v2/blog/{$this->base_hostname}.tumblr.com/posts/photo?api_key={$this->api_key}&limit={$item}&filter=text";
 
-        return file_get_contents($url);
+        return self::file_get_contents_curl($url);
     }
 
     // -------------------------------------------------------------------------
@@ -140,5 +140,27 @@ class Tumblr_Latest_Photos
         }
 
         return "$time $name ago";
+    }
+
+    // -------------------------------------------------------------------------
+    
+    /**
+     * using curl instead of file_get_contents
+     * @param  string $url
+     * @return string
+     */
+    function file_get_contents_curl($url) {
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);       
+
+        $data = curl_exec($ch);
+        curl_close($ch);
+
+        return $data;
     }
 }
