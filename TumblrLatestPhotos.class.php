@@ -73,7 +73,7 @@ class Tumblr_Latest_Photos
 
         if(file_exists($cache) && time() - filemtime($cache) < 60*30 && filesize( $cache )!==0){
             // Use the cache if it exists and is less than three hours old
-            $data = unserialize(self::file_get_contents_curl($cache));
+            $data = unserialize(file_get_contents($cache));
         }
         else{
             // Otherwise rebuild it
