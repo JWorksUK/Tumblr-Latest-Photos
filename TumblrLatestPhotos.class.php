@@ -149,7 +149,7 @@ class Tumblr_Latest_Photos
      * @param  string $url
      * @return string
      */
-    function file_get_contents_curl($url) {
+    public function file_get_contents_curl($url) {
         $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
